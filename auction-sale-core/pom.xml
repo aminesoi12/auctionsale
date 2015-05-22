@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  	<parent>
+		<groupId>com.insat.auctionsale</groupId>
+		<artifactId>auction-sale-parent</artifactId>
+		<version>${auctionsale.version}</version>
+		<relativePath>../auction-sale-parent/pom.xml</relativePath>
+	</parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>auction-sale-core</artifactId>
+   <dependencies>
+		<!-- ~~~~~~~~~~~ -->
+		<!-- PERSISTENCE -->
+		<!-- ~~~~~~~~~~~ -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+		<!-- commons-dbcp provide a real connection pool outside of a JEE container -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>1.4.3.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-orm</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aop</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-tx</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- Spring ldap -->
+		
+		<dependency>
+	        <groupId>org.springframework.ldap</groupId>
+	        <artifactId>spring-ldap-core</artifactId>
+	        <version>2.0.1.RELEASE</version>
+    	</dependency>
+    	<dependency>
+	        <groupId>org.springframework.ldap</groupId>
+	        <artifactId>spring-ldap-core-tiger</artifactId>
+	        <version>2.0.1.RELEASE</version>
+    	</dependency>
+		<!-- Postgresql Driver -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.2-1004-jdbc4</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>auction-sale-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+</project>

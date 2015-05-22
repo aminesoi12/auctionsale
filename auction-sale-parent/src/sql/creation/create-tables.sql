@@ -1,0 +1,91 @@
+/*==============================================================================*/
+/* SGBD Name: POSTGRESQL             		               		      		    */
+/* Creation Date: 21/05/2015	                              			        */
+/* OPENPM database creation script											    */
+/* Autor: Aroua SOUABNI							                                */
+/*==============================================================================*/
+ 
+
+/*==============================================================================*/
+/* Sequences creation				               		      				    */
+/*==============================================================================*/
+ 
+ CREATE SEQUENCE CATEGORY_SEQ
+ START WITH     1
+ INCREMENT BY   1;
+ 
+ CREATE SEQUENCE PRODUCT_SEQ
+ START WITH     1
+ INCREMENT BY   1;
+  
+ CREATE SEQUENCE PROPOSAL_SEQ
+ START WITH     1
+ INCREMENT BY   1;
+ 
+ CREATE SEQUENCE USER_ROLE_SEQ
+ START WITH     1
+ INCREMENT BY   1;
+ 
+ 
+/*==============================================================================*/
+/* Tables creation					               		      				    */
+/*==============================================================================*/
+ 
+ 
+CREATE TABLE CATEGORY(
+	ID SERIAL,
+	NAME VARCHAR(45) NOT NULL,
+	RATE NUMERIC NOT NULL,
+	CREATION_DATE TIMESTAMP NOT NULL,
+	PARENT_CATEGORY_ID INT NOT NULL,
+	PRIMARY KEY (ID),
+	CONSTRAINT FK_SUBCATEGORY_ID FOREIGN KEY (PARENT_CATEGORY_ID) REFERENCES CATEGORY (ID)
+);
+
+CREATE TABLE APP_USER(
+    LOGIN VARCHAR(45) NOT NULL UNIQUE,
+	FIRST_NAME VARCHAR(45) NOT NULL,
+	LAST_NAME VARCHAR(45) NOT NULL,
+	PASSWORD VARCHAR(45) NOT NULL,
+	IS_ENABLED BOOLEAN NOT NULL,
+	CREATION_DATE TIMESTAMP NOT NULL,
+	PRIMARY KEY (LOGIN)
+);
+
+CREATE TABLE USER_ROLE (
+  ID SERIAL,
+  LOGIN VARCHAR(45) NOT NULL,
+  ROLE VARCHAR(45) NOT NULL CHECK (ROLE='ADMIN' OR ROLE='USER'),
+  CREATION_DATE TIMESTAMP NOT NULL,
+  PRIMARY KEY (ID),
+  UNIQUE (LOGIN,ROLE),
+  CONSTRAINT FK_ROLE_USER_ID FOREIGN KEY (LOGIN) REFERENCES APP_USER (LOGIN)
+ );
+  
+CREATE TABLE PRODUCT(
+	ID SERIAL,
+	NAME VARCHAR(45) NOT NULL,
+	DESCRIPTION TEXT NOT NULL,
+	IS_AUCTION_CLOSED BOOLEAN NOT NULL,
+	CATEGORY_ID INT  NOT NULL,
+	USER_LOGIN VARCHAR(45) NOT NULL,
+	CREATION_DATE TIMESTAMP NOT NULL,
+	PRIMARY KEY (ID),
+	CONSTRAINT FK_PRODUCT_CATEGORY_ID FOREIGN KEY (CATEGORY_ID) REFERENCES  CATEGORY(ID),
+	CONSTRAINT FK_PRODUCT_USER_ID FOREIGN KEY (USER_LOGIN) REFERENCES  APP_USER(LOGIN)
+);
+
+
+CREATE TABLE PROPOSAL(
+	ID SERIAL,
+	VALUE NUMERIC NOT NULL,
+	CREATION_DATE TIMESTAMP NOT NULL,
+	COMMENT TEXT NOT NULL,
+	USER_LOGIN VARCHAR(45) NOT NULL,
+	PRODUCT_ID INT NOT NULL,
+	PRIMARY KEY (ID),
+	CONSTRAINT FK_PROPOSAL_USER_ID FOREIGN KEY (USER_LOGIN) REFERENCES  APP_USER(LOGIN),
+	CONSTRAINT FK_PROPOSAL_PRODUCT_ID FOREIGN KEY (PRODUCT_ID) REFERENCES  PRODUCT(ID)
+);
+
+COMMIT;

@@ -1,0 +1,46 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ccb="http://java.sun.com/jsf/composite/cc/buttons"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	contentType="text/html" encoding="UTF-8" lang="fr">
+	<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<h:head>
+	<h:outputStylesheet name="css/main.css" />
+</h:head>
+<h:body>
+
+
+	<h:form id="form" enctype="multipart/form-data; charset=utf-8">
+		<p:layout fullPage="true">
+			<p:layoutUnit id="top" position="north" resizable="false" size="210">
+				<div class="banner">
+					<h:graphicImage library="image" name="auctionsale-banner.png" />
+				</div>
+
+			</p:layoutUnit>
+			<!-- rendered="#{userContextService.isLoggedIn()}" -->
+			<p:layoutUnit id="menu" position="west" size="240" header="Menu">
+
+			</p:layoutUnit>
+			<p:layoutUnit id="center" position="center">
+				<ui:insert name="content" />
+			</p:layoutUnit>
+			<p:layoutUnit id="bottom" position="south" size="50">
+				<div class="footer">
+					<p:outputPanel layout="block">
+						<p:outputLabel value="© Auction Sale Online" />
+
+					</p:outputPanel>
+				</div>
+			</p:layoutUnit>
+
+		</p:layout>
+
+	</h:form>
+</h:body>
+	</html>
+</f:view>

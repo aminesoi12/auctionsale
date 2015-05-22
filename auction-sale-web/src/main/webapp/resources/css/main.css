@@ -1,0 +1,29 @@
+.banner, .footer {
+text-align:center;
+}
+
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	min-width:1200px;	
+}
+
+.ui-layout, .ui-layout-unit{
+    border: none;
+}
+
+a .ui-menuitem-text {
+	color:#000000;
+	font-weight:bold;
+	margin-right:5px;
+}
+
+.ui-panel, .ui-panel-titlebar, .ui-panel-title, .ui-panel-content,.ui-menu-sliding
+{
+	 background-color: #000000;
+}
+.ui-menu
+{
+	margin-top:5px;
+	min-width:200px;	
+}
