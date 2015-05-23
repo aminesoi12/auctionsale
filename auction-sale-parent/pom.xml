@@ -13,10 +13,10 @@
 		<maven.compiler.plugin>3.3</maven.compiler.plugin>
 		<assembly.plugin.version>2.2.1</assembly.plugin.version>
 		<jsf-api.version>2.1.27</jsf-api.version>
-		<spring.version>3.2.7.RELEASE</spring.version>
-		<primefaces.version>5.2</primefaces.version>
+		<spring.version>4.1.6.RELEASE</spring.version>
+		<primefaces.version>5.1</primefaces.version>
 		<primefaces-themes.version>1.0.10</primefaces-themes.version>
-		<hibernate.version>4.3.0.Final</hibernate.version>
+		<hibernate.version>4.2.19.Final</hibernate.version>
 		<javax.servlet.version>2.5</javax.servlet.version>
 		<commons.beanutils.version>1.7.0</commons.beanutils.version>
 		<commons.modeler.version>2.0.1</commons.modeler.version>
@@ -115,7 +115,7 @@
 		<!-- ~~~~~~~~~~~~~~~ -->
 		<!-- SPRING SECURITY -->
 		<!-- ~~~~~~~~~~~~~~~ -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 			<version>3.2.1.RELEASE</version>
@@ -124,12 +124,8 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>3.2.1.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.webflow</groupId>
-			<artifactId>spring-faces</artifactId>
-			<version>2.3.2.RELEASE</version>
-		</dependency>
+		</dependency> -->
+
 
 
 		<!-- ~~~~ -->

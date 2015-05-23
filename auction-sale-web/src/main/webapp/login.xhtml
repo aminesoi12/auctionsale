@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	template="/WEB-INF/layout/main.xhtml">
+
+	<ui:define name="content">
+
+		<p:panelGrid columns="3" layout="grid">
+
+			<f:facet name="header">
+				<p:row>
+					<p:column colspan="2">#{message['label.login.panel']}</p:column>
+				</p:row>
+			</f:facet>
+
+			<h:outputText value="Content" />
+			<h:outputText value="Content" />
+			<h:outputText value="Content" />
+
+			<h:outputText value="Content" />
+			<h:outputText value="Content" />
+			<h:outputText value="Content" />
+
+			<h:outputText value="Content" />
+			<h:outputText value="Content" />
+			<h:outputText value="Content" />
+		</p:panelGrid>
+	</ui:define>
+</ui:composition>
