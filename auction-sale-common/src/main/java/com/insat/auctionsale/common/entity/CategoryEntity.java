@@ -29,10 +29,10 @@ public class CategoryEntity implements Serializable {
 	//bi-directional many-to-one association to CategoryEntity
 	@ManyToOne
 	@JoinColumn(name="parent_category_id")
-	private CategoryEntity category;
+	private CategoryEntity parentCategory;
 
 	//bi-directional many-to-one association to CategoryEntity
-	@OneToMany(mappedBy="category")
+	@OneToMany(mappedBy="parentCategory")
 	private List<CategoryEntity> categories;
 
 	//bi-directional many-to-one association to ProductEntity
@@ -74,12 +74,12 @@ public class CategoryEntity implements Serializable {
 		this.rate = rate;
 	}
 
-	public CategoryEntity getCategory() {
-		return this.category;
+	public CategoryEntity getParentCategory() {
+		return parentCategory;
 	}
 
-	public void setCategory(CategoryEntity category) {
-		this.category = category;
+	public void setParentCategory(CategoryEntity parentCategory) {
+		this.parentCategory = parentCategory;
 	}
 
 	public List<CategoryEntity> getCategories() {
@@ -92,14 +92,14 @@ public class CategoryEntity implements Serializable {
 
 	public CategoryEntity addCategory(CategoryEntity category) {
 		getCategories().add(category);
-		category.setCategory(this);
+		category.setParentCategory(this);
 
 		return category;
 	}
 
 	public CategoryEntity removeCategory(CategoryEntity category) {
 		getCategories().remove(category);
-		category.setCategory(null);
+		category.setParentCategory(null);
 
 		return category;
 	}

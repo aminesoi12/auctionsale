@@ -1,38 +1,52 @@
 package com.insat.auctionsale.common.dto;
 
-import java.util.List;
-
 public class CategoryDto {
-	
+
+	private Integer id;
 	private String name;
 	private Long rate;
-	private List<CategoryDto> categories;
-	private List<ProductDto> products;
-	
-	
+	private CategoryDto parentCategoryDto;
+
+	public CategoryDto() {
+		super();
+	}
+
+	public CategoryDto(String name, Long rate) {
+		super();
+		this.name = name;
+		this.rate = rate;
+	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public Long getRate() {
 		return rate;
 	}
+
 	public void setRate(Long rate) {
 		this.rate = rate;
 	}
-	public List<CategoryDto> getCategories() {
-		return categories;
+
+	public CategoryDto getParentCategoryDto() {
+		return parentCategoryDto;
 	}
-	public void setCategories(List<CategoryDto> categories) {
-		this.categories = categories;
+
+	public void setParentCategoryDto(CategoryDto parentCategoryDto) {
+		this.parentCategoryDto = parentCategoryDto;
 	}
-	public List<ProductDto> getProducts() {
-		return products;
+
+	public Integer getId() {
+		return id;
 	}
-	public void setProducts(List<ProductDto> products) {
-		this.products = products;
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	
+
 }

@@ -9,27 +9,28 @@
 	xmlns:of="http://omnifaces.org/functions"
 	template="/WEB-INF/layout/main.xhtml">
 
+	<ui:define name="menu">
+	</ui:define>
 	<ui:define name="content">
+		<h:form id="loginForm" enctype="multipart/form-data; charset=utf-8">
+			<p:panelGrid columns="2" styleClass="centered">
 
-		<p:panelGrid columns="3" layout="grid">
+				<f:facet name="header">
+					#{message['label.login.panel']}
+				</f:facet>
 
-			<f:facet name="header">
-				<p:row>
-					<p:column colspan="2">#{message['label.login.panel']}</p:column>
-				</p:row>
-			</f:facet>
+				<h:outputLabel value="#{message['label.login.user']}" for="login" />
+				<p:inputText id="login" required="true" />
 
-			<h:outputText value="Content" />
-			<h:outputText value="Content" />
-			<h:outputText value="Content" />
+				<h:outputLabel value="#{message['label.login.password']}"
+					for="password" />
+				<p:password id="password" required="true" />
 
-			<h:outputText value="Content" />
-			<h:outputText value="Content" />
-			<h:outputText value="Content" />
-
-			<h:outputText value="Content" />
-			<h:outputText value="Content" />
-			<h:outputText value="Content" />
-		</p:panelGrid>
+				<f:facet name="footer">
+					<p:commandButton type="button"
+						value="#{message['label.login.signin']}" icon="ui-icon-check" />
+				</f:facet>
+			</p:panelGrid>
+		</h:form>
 	</ui:define>
 </ui:composition>

@@ -23,9 +23,11 @@
 
 			</p:layoutUnit>
 			<!-- rendered="#{userContextService.isLoggedIn()}" -->
-			<p:layoutUnit id="menu" position="west" size="240" header="Menu">
+			<ui:insert name="menu">
+				<p:layoutUnit id="menu" position="west" size="240" header="Menu">
 
-			</p:layoutUnit>
+				</p:layoutUnit>
+			</ui:insert>
 			<p:layoutUnit id="center" position="center">
 				<ui:insert name="content" />
 			</p:layoutUnit>

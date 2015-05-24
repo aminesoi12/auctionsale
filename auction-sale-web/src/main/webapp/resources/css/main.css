@@ -27,3 +27,13 @@ a .ui-menuitem-text {
 	margin-top:5px;
 	min-width:200px;	
 }
+
+.centered {
+    margin: 0 auto;
+}
+
+.tablemargin
+{
+	margin-left: 10%;
+	margin-right: 10%;
+}
