@@ -17,6 +17,7 @@ public class ProductCategoryModelBean {
 	
 	private List<CategoryDto> categories;
 
+	
 
 	@Autowired
 	ProductManagementService productManagementService;
@@ -36,4 +37,7 @@ public class ProductCategoryModelBean {
 		this.categories = categories;
 	}
 
+
+
+	
 }

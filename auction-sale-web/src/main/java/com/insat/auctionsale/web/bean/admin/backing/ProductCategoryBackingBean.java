@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.event.ActionEvent;
 
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.NodeExpandEvent;
@@ -18,6 +17,7 @@ import org.springframework.stereotype.Component;
 import com.insat.auctionsale.common.dto.CategoryDto;
 import com.insat.auctionsale.core.service.ProductManagementService;
 import com.insat.auctionsale.web.bean.admin.model.ProductCategoryModelBean;
+import com.insat.auctionsale.web.bean.admin.model.ProductOnAuctionModelBean;
 
 @Component("productCategoryBackingBean")
 @Scope("view")
@@ -29,6 +29,8 @@ public class ProductCategoryBackingBean {
 	@Autowired
 	ProductManagementService productManagementService;
 
+
+	
 	List<Integer> insertedCategoriesId = new ArrayList<Integer>();
 
 	private TreeNode root;

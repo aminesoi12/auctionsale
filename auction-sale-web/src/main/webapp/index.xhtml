@@ -9,5 +9,25 @@
 	xmlns:of="http://omnifaces.org/functions"
 	template="/WEB-INF/layout/main.xhtml">
 	
+	<ui:define name="content">
+		
+ 	<p:dataGrid var="product" value="#{productBackingBean.products}" columns="1" layout="grid"
+        rows="12" paginator="true" id="productDataGrid"
+        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+        rowsPerPageTemplate="6,12,16">
+ 
+        <f:facet name="header">
+           #{message['label.product.header']}
+        </f:facet>
+ 
+        <p:panel header="#{product.name}" style="text-align:center">
+            <h:panelGrid columns="1" style="width:100%">
+               <!--  <p:graphicImage name="demo/images/car/#{car.brand}.gif"/> --> 
+                <h:outputText value="#{product.description}" />
+            </h:panelGrid>
+        </p:panel>
+        </p:dataGrid>
+ 
+	</ui:define>
 
 </ui:composition>

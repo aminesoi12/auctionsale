@@ -20,7 +20,37 @@
 				<div class="banner">
 					<h:graphicImage library="image" name="auctionsale-banner.png" />
 				</div>
+				<p:toolbar>
+					<p:toolbarGroup align="left">
 
+						<p:commandButton onclick="PF('addProductDialog').show();"
+							value="#{message['label.product.new']}"
+							icon="ui-icon-folder-open" />
+
+						<p:separator />
+
+					</p:toolbarGroup>
+
+					<p:toolbarGroup align="right">
+
+						<h:selectOneMenu onchange="submit()"
+							valueChangeListener="#{productBackingBean.changeShownProducts}">
+							<f:selectItem itemLabel="#{message['label.products.all']}"
+								itemValue="AllProducts" id="allProducts" />
+							<f:selectItem itemLabel="#{message['label.products.mine']}"
+								itemValue="UserProducts" id="UserProducts" />
+						</h:selectOneMenu>
+						<p:spacer width="15" />
+						<p:outputLabel for="language" value="#{message['label.language']}" />
+						<p:spacer width="15" />
+						<h:selectOneMenu value="#{languageSupportBean.localeCode}"
+							onchange="submit()" id="language"
+							valueChangeListener="#{languageSupportBean.countryLocaleCodeChanged}">
+							<f:selectItems value="#{languageSupportBean.countriesInMap}" />
+						</h:selectOneMenu>
+					</p:toolbarGroup>
+
+				</p:toolbar>
 			</p:layoutUnit>
 			<!-- rendered="#{userContextService.isLoggedIn()}" -->
 			<ui:insert name="menu">
@@ -34,7 +64,7 @@
 			<p:layoutUnit id="bottom" position="south" size="50">
 				<div class="footer">
 					<p:outputPanel layout="block">
-						<p:outputLabel value="© Auction Sale Online" />
+						<p:outputLabel value=" #{message['label.footer']}" />
 
 					</p:outputPanel>
 				</div>
@@ -42,7 +72,38 @@
 
 		</p:layout>
 
-	</h:form>
+	<p:dialog header="#{message['label.product.new']}"
+		widgetVar="addProductDialog">
+		<p:panelGrid columns="2">
+			
+				<!-- 		<f:facet name="header">
+					<p:graphicImage library="image" name="category-icon.png" />
+				</f:facet> -->
+				<h:outputLabel
+					value="#{message['label.admin.product.dialog.name.add']}"
+					for="addProductName" />
+				<p:inputText id="addProductName" required="true" />
+				<h:outputLabel
+					value="#{message['label.admin.product.dialog.image.add']}"
+					for="productImage" />
+				<p:fileUpload id="productImage" value="#{productModel.productImage}"
+					mode="simple" skinSimple="true" />
+
+				<h:outputLabel
+					value="#{message['label.admin.product.dialog.description.add']}"
+					for="addProductDescription" />
+				<p:inputText id="addProductDescription" required="true" />
+
+				<f:facet name="footer">
+					<p:commandButton actionListener="productController.addProduct"
+						value="#{message['label.admin.product.dialog.add']}" />
+				</f:facet>
+		
+		</p:panelGrid>
+			
+
+	</p:dialog>
+</h:form>
 </h:body>
 	</html>
 </f:view>

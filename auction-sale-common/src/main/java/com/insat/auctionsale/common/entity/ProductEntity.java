@@ -1,9 +1,19 @@
 package com.insat.auctionsale.common.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -19,9 +29,14 @@ public class ProductEntity implements Serializable {
 	@Id
 	private Integer id;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="creation_date")
-	private Timestamp creationDate;
-
+	private Date creationDate;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="END_AUCTION_DATE")
+	private Date endAuctionDate;
+	
 	private String description;
 
 	@Column(name="is_auction_closed")
@@ -53,12 +68,20 @@ public class ProductEntity implements Serializable {
 		this.id = id;
 	}
 
-	public Timestamp getCreationDate() {
+	public Date getCreationDate() {
 		return this.creationDate;
 	}
 
-	public void setCreationDate(Timestamp creationDate) {
+	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
+	}
+	
+	public Date getEndAuctionDate() {
+		return endAuctionDate;
+	}
+
+	public void setEndAuctionDate(Date endAuctionDate) {
+		this.endAuctionDate = endAuctionDate;
 	}
 
 	public String getDescription() {
